@@ -29,7 +29,7 @@ const HeroSection = () => {
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-foreground/30" />
+        <div className="absolute inset-0 bg-black/50" />
       </motion.div>
 
       {/* Content */}
@@ -42,9 +42,11 @@ const HeroSection = () => {
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="text-display text-5xl md:text-8xl lg:text-9xl font-light text-primary-foreground leading-[0.9] tracking-tight"
+            className="text-display text-5xl md:text-8xl lg:text-9xl font-light text-white leading-[0.9] tracking-tight"
           >
-            Benabdallah Abdelkader
+            Abdelkader
+            <br />
+            Benabdallah
           </motion.h1>
         </div>
         <div className="overflow-hidden mt-2">
@@ -52,7 +54,7 @@ const HeroSection = () => {
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             transition={{ duration: 1, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="text-display text-3xl md:text-5xl lg:text-6xl font-light italic text-primary-foreground/80 tracking-tight"
+            className="text-display text-3xl md:text-5xl lg:text-6xl font-light italic text-white/80 tracking-tight"
           >
             Architecte
           </motion.h2>
@@ -64,8 +66,8 @@ const HeroSection = () => {
           className="mt-8 flex items-center justify-between gap-4"
         >
           <div className="flex items-center gap-4">
-            <div className="w-12 h-px bg-primary-foreground/50" />
-            <p className="text-body text-xs tracking-[0.3em] uppercase text-primary-foreground/70">
+            <div className="w-12 h-px bg-white/50" />
+            <p className="text-body text-xs tracking-[0.3em] uppercase text-white/70">
               Casablanca, Maroc
             </p>
           </div>
@@ -74,7 +76,7 @@ const HeroSection = () => {
             href="https://www.instagram.com/b2a.studio/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+            className="flex items-center gap-2 text-white/70 hover:text-white transition-colors"
           >
             <Instagram className="w-5 h-5" />
             <span className="text-body text-xs tracking-[0.2em] uppercase hidden sm:inline">@b2a.studio</span>
@@ -92,7 +94,7 @@ const HeroSection = () => {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="w-px h-12 bg-primary-foreground/40"
+          className="w-px h-12 bg-white/40"
         />
       </motion.div>
     </section>

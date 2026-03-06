@@ -28,7 +28,7 @@ const Navbar = () => {
         }`}
       >
         <div className="flex items-center justify-between px-6 md:px-12">
-          <button onClick={() => scrollTo("hero")} className="text-display text-2xl font-light tracking-wider text-foreground">
+          <button onClick={() => scrollTo("hero")} className={`text-display text-2xl font-light tracking-wider transition-colors ${scrolled ? "text-foreground" : "text-white"}`}>
             B2A
           </button>
 
@@ -41,7 +41,7 @@ const Navbar = () => {
               { label: "Approche", id: "approach" },
               { label: "Contact", id: "contact" },
             ].map((item) => (
-              <button key={item.id} onClick={() => scrollTo(item.id)} className="nav-link text-body">
+              <button key={item.id} onClick={() => scrollTo(item.id)} className={`nav-link text-body transition-colors ${scrolled ? "text-foreground" : "text-white"}`}>
                 {item.label}
               </button>
             ))}
@@ -49,7 +49,7 @@ const Navbar = () => {
               href="https://www.instagram.com/b2a.studio/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground/70 hover:text-foreground transition-colors"
+              className={`transition-colors ${scrolled ? "text-foreground/70 hover:text-foreground" : "text-white/70 hover:text-white"}`}
             >
               <Instagram className="w-5 h-5" />
             </a>
@@ -63,15 +63,15 @@ const Navbar = () => {
           >
             <motion.span
               animate={menuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-              className="block w-6 h-px bg-foreground"
+              className={`block w-6 h-px transition-colors ${scrolled || menuOpen ? "bg-foreground" : "bg-white"}`}
             />
             <motion.span
               animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
-              className="block w-6 h-px bg-foreground"
+              className={`block w-6 h-px transition-colors ${scrolled || menuOpen ? "bg-foreground" : "bg-white"}`}
             />
             <motion.span
               animate={menuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-              className="block w-6 h-px bg-foreground"
+              className={`block w-6 h-px transition-colors ${scrolled || menuOpen ? "bg-foreground" : "bg-white"}`}
             />
           </button>
         </div>

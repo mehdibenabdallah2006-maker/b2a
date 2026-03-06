@@ -39,9 +39,22 @@ const ContactSection = () => {
                   <p className="text-body text-xs tracking-[0.2em] uppercase text-primary-foreground/40 mb-2">
                     Adresse
                   </p>
-                  <p className="text-display text-xl md:text-2xl font-light">
-                    Casablanca, Maroc
+                  <p className="text-display text-xl md:text-2xl font-light mb-4">
+                    4 Bd Mohamed Zerktouni, 5e étage<br />
+                    Casablanca, Morocco 20000
                   </p>
+                  <div className="w-full h-48 md:h-64 rounded-xl overflow-hidden shadow-lg border border-primary-foreground/10">
+                    <iframe 
+                      src="https://maps.google.com/maps?q=4%20Bd%20Mohamed%20Zerktouni%2C%20Casablanca%2C%20Morocco&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                      width="100%" 
+                      height="100%" 
+                      style={{ border: 0 }} 
+                      allowFullScreen 
+                      loading="lazy" 
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Google Maps Location"
+                    ></iframe>
+                  </div>
                 </div>
 
                 <div>

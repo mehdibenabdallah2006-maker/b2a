@@ -55,8 +55,7 @@ const projects = [
     title: "Immeuble EDGE R+5",
     category: "Commercial — Certification EDGE",
     year: "2024",
-    image: "/villa-ks-mod-1.jpg",
-    size: "large",
+    image: "/placeholder.svg",
     location: "Bd Abderrahim Bouabid, l'Oasis",
     link: "https://www.instagram.com/p/DBrSJthtqn3/",
   },
@@ -64,8 +63,7 @@ const projects = [
     title: "Résidence Palmier",
     category: "Résidentiel — Haut Standing",
     year: "2025",
-    image: "/villa-ks-mod-2.jpg",
-    size: "small",
+    image: "/placeholder.svg",
     location: "Quartier Palmier, Casablanca",
     link: "https://www.instagram.com/p/DMI0hx0Nwyn/",
   },
@@ -73,8 +71,7 @@ const projects = [
     title: "Villa G",
     category: "Résidentiel — Villa Jumelée",
     year: "2025",
-    image: "/resto-2.jpg",
-    size: "wide",
+    image: "/placeholder.svg",
     location: "Quartier Cil - Longchamp, Casablanca",
     link: "https://www.instagram.com/p/DPPDpbuCGt6/",
   },
@@ -83,7 +80,6 @@ const projects = [
     category: "Résidentiel — Villa",
     year: "2025",
     image: "/villa-ks-new.jpg",
-    size: "small",
     location: "Marrakech, Maroc",
     link: "https://www.instagram.com/p/DKAJwZNTmM-/",
   },
@@ -92,7 +88,6 @@ const projects = [
     category: "Résidentiel — Villa",
     year: "2023",
     image: "/villa-h-new.jpg",
-    size: "large",
     location: "Bouskoura, Casablanca",
     link: "https://www.instagram.com/p/C0mNhJnqthe/",
   },
@@ -101,7 +96,6 @@ const projects = [
     category: "Design d'Intérieur",
     year: "2024",
     image: "/interieurs-villa-h-new.jpg",
-    size: "wide",
     location: "Bouskoura, Casablanca",
     link: "https://www.instagram.com/p/C5YIrs-qNAi/",
   },
@@ -110,7 +104,6 @@ const projects = [
     category: "Résidentiel — Moyen Standing",
     year: "2024",
     image: "/immeuble-r3-new.jpg",
-    size: "small",
     location: "Bouskoura, Casablanca",
     link: "https://www.instagram.com/p/C6Wb7OPNFdF/",
   },
@@ -119,7 +112,6 @@ const projects = [
     category: "Commercial — Restaurant",
     year: "2024",
     image: "/resto-1.jpg",
-    size: "large",
     location: "Marrakech, Maroc",
     link: "https://www.instagram.com/p/DEpTOs-NUfs/",
   },
@@ -167,24 +159,12 @@ const ProjectsSection = () => {
         </div>
       </ScrollReveal>
 
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-x-12 md:gap-y-32 md:items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-10">
         {projects.map((project, i) => {
-          const colSpan =
-            project.size === "large"
-              ? "md:col-span-7"
-              : project.size === "wide"
-              ? "md:col-span-12"
-              : "md:col-span-5";
-
-          const aspectRatio =
-            project.size === "wide" 
-              ? "aspect-[16/9] md:aspect-[21/9]" 
-              : project.size === "large"
-              ? "aspect-[4/5]"
-              : "aspect-[3/4]";
+          const isEven = i % 2 === 1; // For staggered layout
 
           return (
-            <ScrollReveal key={i} delay={i * 100} className={colSpan}>
+            <ScrollReveal key={i} delay={(i % 4) * 100} className={isEven ? "sm:mt-16" : ""}>
               <TiltCard>
                 <motion.a
                   href={project.link}
@@ -193,7 +173,7 @@ const ProjectsSection = () => {
                   className="project-card group block relative"
                   style={{ transformStyle: "preserve-3d" }}
                 >
-                  <div className={`image-reveal ${aspectRatio} relative rounded-xl overflow-hidden shadow-2xl`}>
+                  <div className="image-reveal aspect-[4/5] relative rounded-xl overflow-hidden shadow-2xl">
                     <img
                       src={project.image}
                       alt={project.title}
@@ -201,20 +181,20 @@ const ProjectsSection = () => {
                       loading="lazy"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6 md:p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div className="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                       <div style={{ transform: "translateZ(40px)" }}>
-                        <p className="text-body text-xs tracking-[0.2em] uppercase text-white/70 mb-1">
+                        <p className="text-body text-[10px] tracking-[0.2em] uppercase text-white/70 mb-1 line-clamp-1">
                           {project.category}
                         </p>
-                        <h3 className="text-display text-2xl md:text-3xl font-light text-white">
+                        <h3 className="text-display text-xl lg:text-2xl font-light text-white leading-tight">
                           {project.title}
                         </h3>
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center justify-between mt-6" style={{ transform: "translateZ(20px)" }}>
-                    <h3 className="text-body text-sm font-medium">{project.title}</h3>
-                    <span className="text-body text-xs text-muted-foreground">{project.year}</span>
+                  <div className="flex items-start justify-between mt-4 gap-2" style={{ transform: "translateZ(20px)" }}>
+                    <h3 className="text-body text-sm font-medium leading-tight">{project.title}</h3>
+                    <span className="text-body text-xs text-muted-foreground shrink-0">{project.year}</span>
                   </div>
                 </motion.a>
               </TiltCard>
